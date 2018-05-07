@@ -1,0 +1,113 @@
+import random
+import time
+import os
+
+os.system("start C:/Users/canno/Desktop/")
+
+print("Welcome to my fighting game!")
+print("The attacks are:")
+print(" Punch | 50% chance \n Super Punch | 20% chance \n Heavy | 30% chance")
+
+enemyhealth = 100
+yourhealth = 100
+
+yourturn = True
+
+def enemyturn():
+    t = random.randint(1,3)
+
+    if t == 1:
+        print("Your Enemy Picked Punch! ")
+        h = random.randint(1,10)
+        random.randint(1,10)
+        if h >= 5:
+            yourhealth = yourhealth - h
+            print("HIT!","Damage:", h, "Your Health Remaining:" , yourhealth)
+            h = random.randint(1,10)
+        else:
+            print("MISS! Your Health Remaining:" , yourhealth)
+            h = random.randint(1,10)
+            print("Your Turn! ")
+            yourturn = True
+
+    if t == 2:
+        print("Your Enemy Picked Heavy! ")
+        h = random.randint(1,35)
+        random.randint(1,35)
+        if h >= 20:
+            yourhealth = yourhealth - h
+            print("HIT!","Damage:", h, "Your Health Remaining:" , yourhealth)
+            h = random.randint(1,10)
+        else:
+            print("MISS! Your Health Remaining:" , yourhealth)
+            h = random.randint(1,10)
+            print("Your Turn! ")
+            yourturn = True
+
+    if t == 3:
+        print("Your Enemy Picked Super Punch! ")
+        h = random.randint(1,50)
+        random.randint(1,50)
+        if h >= 40:
+            yourhealth = yourhealth - h
+            print("HIT!","Damage:", h, "Your Health Remaining:" , yourhealth)
+            h = random.randint(1,10)
+        else:
+            print("MISS! Your Health Remaining:" , yourhealth)
+            h = random.randint(1,10)
+            print("Your Turn! ")
+            yourturn = True
+            
+
+while enemyhealth > 0:
+    if yourturn == True:
+        attack = input("What Is Your Attack? ")
+        
+        
+
+###Punch Hit Senction###
+        if attack == "Punch":
+            h = random.randint(1,10)
+            random.randint(1,10)
+            if h >= 5 :
+                enemyhealth = enemyhealth - h
+                print("HIT!","Damage:", h, "Enemy Health Remaining:" , enemyhealth)
+                h = random.randint(1,10)
+            else:
+                print("MISS! Enemy Health Remaining:" , enemyhealth)
+                h = random.randint(1,10)
+                print("Enemy's Turn!")
+                print("Your Enemy Is Picking An Attack! ")
+                enemyturn()
+                
+
+###Heavy Hit Section###
+        if attack == "Heavy":
+            h = random.randint(1,35)
+            random.randint(1,35)
+            if h >= 20 :
+                enemyhealth = enemyhealth - h
+                print("HIT!","Damage:", h,"Enemy Health:", enemyhealth)
+                h = random.randint(1,35)
+            else:
+                print("MISS!", h, "Enemy Health Remaining:" , enemyhealth)
+                h = random.randint(1,10)
+                enemyturn()
+
+
+###Super Punch###
+        if attack == "Super Punch":
+            h = random.randint(1,50)
+            random.randint(1,50)
+            if h >= 40 :
+                enemyhealth = enemyhealth - h
+                print("HIT!","Damage:", h, "Enemy Health Remaining:" , enemyhealth)
+                h = random.randint(1,50)
+            else:
+                print("MISS! Enemy Health Remaining:", enemyhealth)
+                h = random.randint(1,50)
+                enemyturn()
+
+
+else:
+    print("You Won")
