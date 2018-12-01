@@ -1,0 +1,201 @@
+import random
+
+print("Welcome to my fighting game!")
+
+
+def Start():
+    FirstAsk = input("(1.) To play two player \n(2.) To play againts computer ")
+    if FirstAsk == "1":
+        twoPlayer()
+    if FirstAsk == "2":
+        Computer()
+
+def twoPlayer():
+    PlayerOneHealth = 100
+    PlayerTwoHealth = 100
+
+    go = 0
+    
+    PlayerOneTurn = True
+    PlayerTwoTurn = False
+
+    Over = False
+
+    while Over == False:
+        while PlayerOneTurn == True:
+            if go == 0:
+                print("Player one goes first!")
+            else:
+                print(" ")
+                print(" ")
+                print(" ")
+                print("Player one's turn!")
+                print(" ")
+
+            print("Your attacks are:")
+            print("Punch | 50% chance \nHeavy Punch | 30% chance \nSuper Punch | 20% chance")
+            PlayerAttackr = input("Enter your attack: ")
+            PlayerAttack = PlayerAttackr.lower()
+
+            if PlayerAttack == "punch":
+                print(" ")
+                print("You picked punch!")
+                rr = random.randint(1,10)
+                random.randint(1,10)
+                if rr >= 5:
+                    PlayerTwoHealth = PlayerTwoHealth - rr
+                    print(" ")
+                    print("HIT! Damage:", rr, "player two's health:", PlayerTwoHealth)
+                    if PlayerTwoHealth <= 0:
+                        Over = True
+                    rr = random.randint(1,10)
+                    PlayerOneTurn = False
+                    PlayerTwoTurn = True
+                    go = go + 1
+                else:
+                    print(" ")
+                    print("MISS! Player two's health:", PlayerTwoHealth)
+                    rr = random.randint(1,10)
+                    PlayerOneTurn = False
+                    PlayerTwoTurn = True
+                    go = go + 1
+
+            if PlayerAttack == "heavy punch":
+                print(" ")
+                print("You picked heavy punch!")
+                rr = random.randint(1,35)
+                random.randint(1,35)
+                if rr >= 20:
+                    PlayerTwoHealth = PlayerTwoHealth - rr
+                    print(" ")
+                    print("HIT! Damage:", rr, "Player two's health:", PlayerTwoHealth)
+                    if PlayerTwoHealth <= 0:
+                        Over = True
+                    rr = random.randint(1,35)
+                    PlayerOneTurn = False
+                    PlayerTwoTurn = True
+                    go = go + 1
+                else:
+                    print(" ")
+                    print("MISS! Player two's health:", PlayerTwoHealth)
+                    rr = random.randint(1,35)
+                    PlayerOneTurn = False
+                    PlayerTwoTurn = True
+                    go = go + 1
+
+            if PlayerAttack == "super punch":
+                print(" ")
+                print("You picked super punch!")
+                rr = random.randint(1,50)
+                random.randint(1,50)
+                if rr >= 40:
+                    PlayerTwoHealth = PlayerTwoHealth - rr
+                    print(" ")
+                    print("HIT! Damage:", rr, "Player two's health:", PlayerTwoHealth)
+                    if PlayerTwoHealth <= 0:
+                        Over = True
+                    rr = random.randint(1,50)
+                    PlayerOneTurn = False
+                    PlayerTwoTurn = True
+                    go = go + 1
+                else:
+                    print(" ")
+                    print("MISS! Player two's health:", PlayerTwoHealth)
+                    rr = random.randint(1,50)
+                    PlayerOneTurn = False
+                    PlayerTwoTurn = True
+                    go = go + 1
+
+##############################################################################################################                
+
+        while PlayerTwoTurn == True:
+            print(" ")
+            print(" ")
+            print(" ")
+            print("Player two's turn!")
+            print(" ")
+            print("Your attacks are:")
+            print("Punch | 50% chance \nHeavy Punch | 30% chance \nSuper Punch | 20% chance")
+            PlayerAttackr = input("Enter your attack: ")
+            PlayerAttack = PlayerAttackr.lower()
+
+            if PlayerAttack == "punch":
+                print(" ")
+                print("You picked punch!")
+                rr = random.randint(1,10)
+                random.randint(1,10)
+                if rr >= 5:
+                    PlayerOneHealth = PlayerOneHealth - rr
+                    print(" ")
+                    print("HIT! Damage:", rr, "Player one's health:", PlayerOneHealth)
+                    if PlayerOneHealth <= 0:
+                        Over = True
+                    rr = random.randint(1,10)
+                    PlayerOneTurn = True
+                    PlayerTwoTurn = False
+                else:
+                    print(" ")
+                    print("MISS! Player one's health:", PlayerOneHealth)
+                    rr = random.randint(1,10)
+                    PlayerOneTurn = True
+                    PlayerTwoTurn = False
+
+            if PlayerAttack == "heavy punch":
+                print(" ")
+                print("You picked heavy punch!")
+                rr = random.randint(1,35)
+                random.randint(1,35)
+                if rr >= 20:
+                    PlayerOneHealth = PlayerOneHealth - rr
+                    print(" ")
+                    print("HIT! Damage:", rr, "Player one's health:", PlayerOneHealth)
+                    if PlayerOneHealth <= 0:
+                        Over = True
+                    rr = random.randint(1,35)
+                    PlayerOneTurn = True
+                    PlayerTwoTurn = False
+                else:
+                    print(" ")
+                    print("MISS! Player one's health:", PlayerTwoHealth)
+                    rr = random.randint(1,35)
+                    PlayerOneTurn = True
+                    PlayerTwoTurn = False
+
+            if PlayerAttack == "super punch":
+                print(" ")
+                print("You picked super punch!")
+                rr = random.randint(1,50)
+                random.randint(1,50)
+                if rr >= 40:
+                    PlayerOneHealth = PlayerOneHealth - rr
+                    print(" ")
+                    print("HIT! Damage:", rr, "Player one's health:", PlayerOneHealth)
+                    if PlayerOneHealth <= 0:
+                        Over = True
+                    rr = random.randint(1,50)
+                    PlayerOneTurn = True
+                    PlayerTwoTurn = False
+                else:
+                    print(" ")
+                    print("MISS! Player one's health:", PlayerOneHealth)
+                    rr = random.randint(1,50)
+                    PlayerOneTurn = True
+                    PlayerTwoTurn = False
+
+    else:
+        print("Game Over!")
+        print("Player one had", PlayerOneHealth)
+        print("Player two had", PlayerTwoHealth)
+
+    Start()
+            
+                    
+
+            
+        
+    
+def Computer():
+    print(" ")
+
+
+Start()
